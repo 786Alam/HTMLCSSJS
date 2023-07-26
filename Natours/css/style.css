@@ -14,23 +14,46 @@ Dark green: #28b485;
 /*
 1 Building Header Part 1
 1 Normalize css */
-*{
+
+/* 55 Update to select all of after and all of before pseudo elements on the page */
+*,
+*::after,
+*::before{
     margin:0;
     padding: 0;
-    box-sizing: border-box;
+
+    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body
+    
+    Setting the box sizing to inherit ,it will automatically inherit anything we put in border box.
+    */
+    box-sizing: inherit;
 }
 
 /* 2 Inheritance from body */
 
+/* 49 Setting the root font size so that all the fonts in the css can be changed to rem / 1 rem = 10px in this css / 
+In GENERAL 1 rem = 16px  */
+html{
+
+    /* 53 Divide what we want by 16(base rem) 10 /16 = 0.625, so set font size to 62.5% so that the font size isn't defined by user through screen size  */
+    /* font-size: 10px; */
+    font-size: 62.5%;
+}
+
 body{
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
 
+    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body */
+    box-sizing: border-box;
+    
+
     /* 4 Insert padding around the whole body */
-    padding: 30px;
+    /* 50 30px padding, divide it by rem and we end up with 3  and just like this divide each px value by 10 set in html css decleration block above */
+    padding: 3rem;
 }
 
 /* 3 Targeting header class * Background position: center, Center stays the same, crop at top and bottom and vice versa 
@@ -69,25 +92,25 @@ body{
 /* 2 Building Header Part 2  */
 
 /* 7 Absolute position Intro / Top and Left */
-.logo-box{
+.header__logo-box{
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 
 }
 
 /* 9 Specify the height of image / Width will be automatically figured out by the browser */
-.logo{
-    height: 35px;
+.header__logo{
+    height: 3.5rem;
 }
 
 /* 24 logo animation to occur on hover  */
-.logo:hover{
+.header__logo:hover{
     animation: moveInRight 1s ease-in-out;
 }
 
 /* 12 Following the natural order of html style the main text box  */
-.main-tex-box{
+.header__main-tex-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -114,16 +137,16 @@ body{
 
 
     /* 29 For adding white space by margin setting it to margin bottom  */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 
 }
 
  /* 11 If we want elements on different lines, use display block / Font Weight / Letter Spacing  */
-.heading-primary-main{
+.heading-primary--main{
     display: block;
-    font-size: 60px; 
+    font-size: 6rem; 
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
 
      /* 17 For the animation to work, we have to specify two properties, "animation name" and "animation-duration" / 
@@ -139,11 +162,11 @@ body{
 
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
     display: block;
-    font-size: 20px;
-    font-weight: 700px;
-    letter-spacing: 17.4px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
     
 
     /* 21 Shorthand Animation property, Instead of specifying each property, just use shorthand animation
@@ -164,7 +187,7 @@ body{
 
         /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
         negative value */
-        transform: translateX(-100px) ;
+        transform: translateX(-10rem) ;
     }
 
     /* 23 rotate property for animation 
@@ -176,7 +199,7 @@ body{
 
     80%{
         /* 18 In middle animation  */
-        transform: translateX(10px) ;
+        transform: translateX(1rem) ;
     }
 
     100%{
@@ -197,12 +220,12 @@ body{
         opacity: 0;
 
 
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80%{
         /* 18 In middle animation  */
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100%{
@@ -219,7 +242,7 @@ body{
     0%{
         /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     100%{
@@ -241,39 +264,42 @@ body{
 .btn:visited{
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 50px;
+    padding: 1.5rem 5rem;
     /* 27 btn is inline element and occupying text in the upper text line , we fix this by setting it to inline block */
     display:inline-block;
     /* 32 Setting the edges of button  */
-    border-radius: 100px;
+    border-radius: 10rem;
 
     /* 33 Transition property instead of keyframes(which is the complex animation steps)  */
     transition: all .2s;
     /* 41 Set the postion property of the element to relative */
     position: relative;
+
+    /* 51 Set font size in rem for button text  */
+    font-size: 1.6rem;
     
 }
 
 /* 30 select button hover "HOVER STATE" of the button /  Negative value in Y state from bottom to top and vice versa */
 .btn:hover{
-    transform: translateY(-3px);
+    transform: translateY(-.3px);
 
     /* 34 box shadow on  so we set to 0  10px(hover on y direction, not x direction) 20px(blur value so it looks like we are further away),
     rgba(0, 0, 0, 0.2)(rgba in black and transparency)*/
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 /* 31 Click on active state  */
 .btn:active{
-    transform: translateY(-1px);
+    transform: translateY(-.1px);
 
     /* 35 Click on the button, shadow needs to looks smaller and less blur */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2)
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2)
 }
 
 
 /* 26 Button is going to be white, */
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777;
 }
@@ -287,7 +313,7 @@ body{
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     /* 40 It will still look like part of the parent btn, so we should put it behind our actual postion, use absolute postioning */
     position: absolute;
     top:0;
@@ -298,7 +324,7 @@ body{
 
 }
 /* /38 Another pseudo element for the button white  */
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 
@@ -313,7 +339,7 @@ body{
 
 
 /* 47 Button animated class created for animation  */
-.btn-animated{
+.btn--animated{
     animation: moveInBottom .5s ease-out .75s;
 
     /* 48 Animation fill-mode-set to backwards :  It will automatically apply the styles of zero percent before the animation starts
@@ -322,5 +348,7 @@ body{
     animation-fill-mode: backwards;
 }
 
+
+/* 52 Use media queries for setting font for each screen size  */
 
 /* ########################END OF SECTION 1 (2 - Natours Project Setup and First Steps Part 1) ########################################## */
