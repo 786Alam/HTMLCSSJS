@@ -1,0 +1,82 @@
+// 66 Placing animation keyframes elements is -animations.scss
+
+/* ##############################################  KEYFRAMES ANIMATIONS  ########################################################## */
+
+
+/* 14 Two Types of Animations: First One Transition Propery and @keyframes / Build moveInLeft animation  */
+@keyframes moveInLeft {
+    0%{
+        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+        opacity: 0;
+
+        /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
+        negative value */
+        transform: translateX(-10rem) ;
+    }
+
+    /* 23 rotate property for animation 
+    60%{
+        transform: rotate(180deg);
+    } */
+
+
+
+    80%{
+        /* 18 In middle animation  */
+        transform: translateX(1rem) ;
+    }
+
+    100%{
+        /* 15 Animating property such as opacity  */
+        opacity: 1;
+
+        /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
+        negative value / ) will be the base 0 State */
+        transform: translate(0) ;
+    }
+}
+
+
+/* 20 Build MoveInRight functionality */
+@keyframes moveInRight {
+    0%{
+        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+        opacity: 0;
+
+
+        transform: translateX(10rem);
+    }
+
+    80%{
+        /* 18 In middle animation  */
+        transform: translateX(-1rem);
+    }
+
+    100%{
+        /* 15 Animating property such as opacity  */
+        opacity: 1;
+
+
+        transform: translate(0);
+    }
+}
+
+/* 46 Keyframe animation from Move in from Bottom / Y Direction goees Top to Bottom translateY(30) */
+@keyframes moveInBottom {
+    0%{
+        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100%{
+        /* 15 Animating property such as opacity  */
+        opacity: 1;
+
+
+        transform: translate(0);
+    }
+}
+
+
+/* ##################################################################################################################### */

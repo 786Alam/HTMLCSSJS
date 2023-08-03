@@ -1,0 +1,30 @@
+// 66 Placing base elements is -base.scss
+
+
+/* 55 Update to select all of after and all of before pseudo elements on the page */
+*,
+*::after,
+*::before{
+    margin:0;
+    padding: 0;
+
+    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body
+    
+    Setting the box sizing to inherit ,it will automatically inherit anything we put in border box.
+    */
+    box-sizing: inherit;
+}
+
+/* 2 Inheritance from body */
+
+/* 49 Setting the root font size so that all the fonts in the css can be changed to rem / 1 rem = 10px in this css / 
+In GENERAL 1 rem = 16px  */
+html{
+
+    /* 53 Divide what we want by 16(base rem) 10 /16 = 0.625, so set font size to 62.5% so that the font size isn't defined by user through screen size  */
+    /* font-size: 10px; */
+
+    //68 Global Defination of 1rem is so we leave it here instead of moving to typography
+    font-size: 62.5%;
+}
+

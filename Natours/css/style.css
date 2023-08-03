@@ -1,313 +1,129 @@
-/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE Cmd+D to select at same time */
-/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE CMD+Cursor to place mutiple cursors */
-
-
-/* 
-COLORS{
-
-Light green: #7ed56f;
-Medium green: #55c57a;
-Dark green: #28b485;
-} */
-
-
-/*
-1 Building Header Part 1
-1 Normalize css */
-
 /* 55 Update to select all of after and all of before pseudo elements on the page */
 *,
 *::after,
-*::before{
-    margin:0;
-    padding: 0;
-
-    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body
+*::before {
+  margin: 0;
+  padding: 0;
+  /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body
     
     Setting the box sizing to inherit ,it will automatically inherit anything we put in border box.
     */
-    box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 /* 2 Inheritance from body */
-
 /* 49 Setting the root font size so that all the fonts in the css can be changed to rem / 1 rem = 10px in this css / 
 In GENERAL 1 rem = 16px  */
-html{
+html {
+  /* 53 Divide what we want by 16(base rem) 10 /16 = 0.625, so set font size to 62.5% so that the font size isn't defined by user through screen size  */
+  /* font-size: 10px; */
+  font-size: 62.5%; }
 
-    /* 53 Divide what we want by 16(base rem) 10 /16 = 0.625, so set font size to 62.5% so that the font size isn't defined by user through screen size  */
-    /* font-size: 10px; */
-    font-size: 62.5%;
-}
-
-body{
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-
-    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body */
-    box-sizing: border-box;
-    
-
-    /* 4 Insert padding around the whole body */
-    /* 50 30px padding, divide it by rem and we end up with 3  and just like this divide each px value by 10 set in html css decleration block above */
-    padding: 3rem;
-}
-
-/* 3 Targeting header class * Background position: center, Center stays the same, crop at top and bottom and vice versa 
-/ Background gradient Start From left and go to right */
-
-/* 5 Using Clip path to adding a clip using polygon on the header  */
-.header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(126, 213, 111, 0.8),
-         rgba(40, 180, 133, 0.8)), 
-         url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-
-    /* 6 clip-path: polygon(x y, x y, x y); 
-    0 0 =  X and y in top left to be at starting point
-    100% 0 = X and Y in top right as only X of element is selected 100% 
-    100% 50% = X is same 100% and Y in Bottom Right is 50% or 200px selected as manipulating the polygon shape 
-    0 100% = Starting from starting point Top Right again,  As X Stays same and Y is 100% in Bottom Left*/
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-
-    /* For Triangle: 
-    clip-path: polygon(50% 0, 100% 100%,0 100%); */
-
-    /* USEFUL TOOL: https://bennettfeely.com/clippy/ */
-
-
-    /* 8. Position of parent element which is header should be relative so the child logo-box can be absolute */
-    position: relative;
-
-}
-
-
-/* 2 Building Header Part 2  */
-
-/* 7 Absolute position Intro / Top and Left */
-.header__logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-
-}
-
-/* 9 Specify the height of image / Width will be automatically figured out by the browser */
-.header__logo{
-    height: 3.5rem;
-}
-
-/* 24 logo animation to occur on hover  */
-.header__logo:hover{
-    animation: moveInRight 1s ease-in-out;
-}
-
-/* 12 Following the natural order of html style the main text box  */
-.header__main-tex-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /* background-color: red; */
-
-
-    /* 13  To Align the box in center we use transform property to translate / -50% is translate in X and Y .no longer in relation to the parent element
-    but the element itself */
-    transform: translate(-50%, -50%);
-
-    /* 28 For centering the elements of the box, we could set it to center by text align since button is text instead of using positon absolute or transform 
-    since it would be an overkill */
-    text-align: center;
-
-}
-
-/* 10 Heading primary css /heading-primary-main css / heading primary sub css */
-.heading-primary{
-    color: #ffff;
-    text-transform: uppercase;
-
-    /* 22 Incase of shaking in animaiton, use backface-visibility property to fix it, set if to hidden */
-    backface-visibility: hidden;
-
-
-    /* 29 For adding white space by margin setting it to margin bottom  */
-    margin-bottom: 6rem;
-
-}
-
- /* 11 If we want elements on different lines, use display block / Font Weight / Letter Spacing  */
-.heading-primary--main{
-    display: block;
-    font-size: 6rem; 
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-
-     /* 17 For the animation to work, we have to specify two properties, "animation name" and "animation-duration" / 
-      19 Other properties that we can specify such as animation delay / Animation iteration count property */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* animation-delay: 3s; */
-
-    /* 20 Animation-timing function, How slow or fast will the animation proceed
-    Example ease in will start fast and become slower at time
-    east out, the animation will start slow and become fast over time */
-    animation-timing-function: ease-out;
-
-}
-
-.heading-primary--sub{
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    
-
-    /* 21 Shorthand Animation property, Instead of specifying each property, just use shorthand animation
-    animation: name duration timing-function delay iteration-count direction fill-mode;*/
-    animation: moveInRight 1s ease-out;
-
-}
-
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body */
+  box-sizing: border-box;
+  /* 4 Insert padding around the whole body */
+  /* 50 30px padding, divide it by rem and we end up with 3  and just like this divide each px value by 10 set in html css decleration block above */
+  padding: 3rem; }
 
 /* ##############################################  KEYFRAMES ANIMATIONS  ########################################################## */
-
-
 /* 14 Two Types of Animations: First One Transition Propery and @keyframes / Build moveInLeft animation  */
 @keyframes moveInLeft {
-    0%{
-        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
-        opacity: 0;
-
-        /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
+  0% {
+    /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+    opacity: 0;
+    /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
         negative value */
-        transform: translateX(-10rem) ;
-    }
-
-    /* 23 rotate property for animation 
+    transform: translateX(-10rem); }
+  /* 23 rotate property for animation 
     60%{
         transform: rotate(180deg);
     } */
-
-
-
-    80%{
-        /* 18 In middle animation  */
-        transform: translateX(1rem) ;
-    }
-
-    100%{
-        /* 15 Animating property such as opacity  */
-        opacity: 1;
-
-        /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
+  80% {
+    /* 18 In middle animation  */
+    transform: translateX(1rem); }
+  100% {
+    /* 15 Animating property such as opacity  */
+    opacity: 1;
+    /* 16 Transform animation, X goes from Left to Right, Y goes from Top to Bottom, If we want to move  X from left to right, we will be using
         negative value / ) will be the base 0 State */
-        transform: translate(0) ;
-    }
-}
-
+    transform: translate(0); } }
 
 /* 20 Build MoveInRight functionality */
 @keyframes moveInRight {
-    0%{
-        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
-        opacity: 0;
-
-
-        transform: translateX(10rem);
-    }
-
-    80%{
-        /* 18 In middle animation  */
-        transform: translateX(-1rem);
-    }
-
-    100%{
-        /* 15 Animating property such as opacity  */
-        opacity: 1;
-
-
-        transform: translate(0);
-    }
-}
+  0% {
+    /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    /* 18 In middle animation  */
+    transform: translateX(-1rem); }
+  100% {
+    /* 15 Animating property such as opacity  */
+    opacity: 1;
+    transform: translate(0); } }
 
 /* 46 Keyframe animation from Move in from Bottom / Y Direction goees Top to Bottom translateY(30) */
 @keyframes moveInBottom {
-    0%{
-        /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-    100%{
-        /* 15 Animating property such as opacity  */
-        opacity: 1;
-
-
-        transform: translate(0);
-    }
-}
-
+  0% {
+    /* 15 Animating property such as opacity and transform which is optimized for browser properties*/
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    /* 15 Animating property such as opacity  */
+    opacity: 1;
+    transform: translate(0); } }
 
 /* ##################################################################################################################### */
-
-
-
-/* 25 Styling our btn element / Psuedo class(Special states of selectors) Link, visisted(state in which user has already clicked on the link) */
-.btn:link,
-.btn:visited{
+.btn {
+  /* 25 Styling our btn element / Psuedo class(Special states of selectors) Link, visisted(state in which user has already clicked on the link) */
+  /* 30 select button hover "HOVER STATE" of the button /  Negative value in Y state from bottom to top and vice versa */
+  /* 31 Click on active state  */
+  /* 26 Button is going to be white, */
+  /* 36 Pseudo elements (after) allow us to style certain parts of elements  / Pseudo elements is basically
+treated like of the child of the element*/
+  /* /38 Another pseudo element for the button white  */
+  /* 42 When we hover over the button, then we want certain styles after using pseudo element  */
+  /* 47 Button animated class created for animation  */ }
+  .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 5rem;
     /* 27 btn is inline element and occupying text in the upper text line , we fix this by setting it to inline block */
-    display:inline-block;
+    display: inline-block;
     /* 32 Setting the edges of button  */
     border-radius: 10rem;
-
     /* 33 Transition property instead of keyframes(which is the complex animation steps)  */
     transition: all .2s;
     /* 41 Set the postion property of the element to relative */
     position: relative;
-
     /* 51 Set font size in rem for button text  */
-    font-size: 1.6rem;
-    
-}
-
-/* 30 select button hover "HOVER STATE" of the button /  Negative value in Y state from bottom to top and vice versa */
-.btn:hover{
-    transform: translateY(-.3px);
-
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3px);
     /* 34 box shadow on  so we set to 0  10px(hover on y direction, not x direction) 20px(blur value so it looks like we are further away),
     rgba(0, 0, 0, 0.2)(rgba in black and transparency)*/
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
-
-/* 31 Click on active state  */
-.btn:active{
-    transform: translateY(-.1px);
-
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      /* 43  We want the elements to be bigger to grow and to fade out animtaion effect / Scale property is used to scale elements bigger, e.g.
+        scale(2) will double the size. / Can scale in X and Y DIrection such as Translates , Rotates */
+      transform: scaleX(1.4) scaleY(1.6);
+      /* 45 opacity of the element goes back to zero /  Trick for fading something out  */
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1px);
     /* 35 Click on the button, shadow needs to looks smaller and less blur */
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2)
-}
-
-
-/* 26 Button is going to be white, */
-.btn--white{
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
     background-color: #fff;
-    color: #777;
-}
-
-/* 36 Pseudo elements (after) allow us to style certain parts of elements  / Pseudo elements is basically
- treated like of the child of the element*/
-
-.btn::after{
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
     /* 37 specify content propert, no matter if it is empty. Otherwise it wont appear / Samething with the display property  */
     content: "";
     display: inline-block;
@@ -316,39 +132,99 @@ body{
     border-radius: 10rem;
     /* 40 It will still look like part of the parent btn, so we should put it behind our actual postion, use absolute postioning */
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     z-index: -1;
     /* 44 Transition for the button scale  */
-    transition: all .4s;
-
-}
-/* /38 Another pseudo element for the button white  */
-.btn--white::after{
-    background-color: #fff;
-}
-
-/* 42 When we hover over the button, then we want certain styles after using pseudo element  */
-.btn:hover::after{
-    /* 43  We want the elements to be bigger to grow and to fade out animtaion effect / Scale property is used to scale elements bigger, e.g.
-    scale(2) will double the size. / Can scale in X and Y DIrection such as Translates , Rotates */
-    transform: scaleX(1.4) scaleY(1.6);
-    /* 45 opacity of the element goes back to zero /  Trick for fading something out  */
-    opacity: 0;
-}
-
-
-/* 47 Button animated class created for animation  */
-.btn--animated{
+    transition: all .4s; }
+  .btn--animated {
     animation: moveInBottom .5s ease-out .75s;
-
     /* 48 Animation fill-mode-set to backwards :  It will automatically apply the styles of zero percent before the animation starts
     
     END OF SECTION 1*/
-    animation-fill-mode: backwards;
-}
+    animation-fill-mode: backwards; }
 
+/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE Cmd+D to select at same time */
+/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE CMD+Cursor to place mutiple cursors */
+/*
+1 Building Header Part 1
+1 Normalize css */
+/* 3 Targeting header class * Background position: center, Center stays the same, crop at top and bottom and vice versa 
+/ Background gradient Start From left and go to right */
+/* 5 Using Clip path to adding a clip using polygon on the header  */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* 6 clip-path: polygon(x y, x y, x y); 
+    0 0 =  X and y in top left to be at starting point
+    100% 0 = X and Y in top right as only X of element is selected 100% 
+    100% 50% = X is same 100% and Y in Bottom Right is 50% or 200px selected as manipulating the polygon shape 
+    0 100% = Starting from starting point Top Right again,  As X Stays same and Y is 100% in Bottom Left*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* For Triangle: 
+    clip-path: polygon(50% 0, 100% 100%,0 100%); */
+  /* USEFUL TOOL: https://bennettfeely.com/clippy/ */
+  /* 8. Position of parent element which is header should be relative so the child logo-box can be absolute */
+  position: relative;
+  /* 9 Specify the height of image / Width will be automatically figured out by the browser */
+  /* 24 logo animation to occur on hover  */
+  /* 12 Following the natural order of html style the main text box  */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation: moveInRight 1s ease-in-out; }
+  .header__main-tex-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* background-color: red; */
+    /* 13  To Align the box in center we use transform property to translate / -50% is translate in X and Y .no longer in relation to the parent element
+        but the element itself */
+    transform: translate(-50%, -50%);
+    /* 28 For centering the elements of the box, we could set it to center by text align since button is text instead of using positon absolute or transform 
+        since it would be an overkill */
+    text-align: center; }
+
+/* 2 Building Header Part 2  */
+/* 7 Absolute position Intro / Top and Left */
+/* 9 Specify the height of image / Width will be automatically figured out by the browser */
+/* 10 Heading primary css /heading-primary-main css / heading primary sub css */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* 22 Incase of shaking in animaiton, use backface-visibility property to fix it, set if to hidden */
+  backface-visibility: hidden;
+  /* 29 For adding white space by margin setting it to margin bottom  */
+  margin-bottom: 6rem;
+  /* 11 If we want elements on different lines, use display block / Font Weight / Letter Spacing  */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* 17 For the animation to work, we have to specify two properties, "animation name" and "animation-duration" / 
+        19 Other properties that we can specify such as animation delay / Animation iteration count property */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-delay: 3s; */
+    /* 20 Animation-timing function, How slow or fast will the animation proceed
+        Example ease in will start fast and become slower at time
+        east out, the animation will start slow and become fast over time */
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    /* 21 Shorthand Animation property, Instead of specifying each property, just use shorthand animation
+        animation: name duration timing-function delay iteration-count direction fill-mode;*/
+    animation: moveInRight 1s ease-out; }
 
 /* 52 Use media queries for setting font for each screen size  */
-
 /* ########################END OF SECTION 1 (2 - Natours Project Setup and First Steps Part 1) ########################################## */

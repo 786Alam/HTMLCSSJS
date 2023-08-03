@@ -1,0 +1,123 @@
+// 66 Placing header elements is -header.scss in layout section
+
+/* 3 Targeting header class * Background position: center, Center stays the same, crop at top and bottom and vice versa 
+/ Background gradient Start From left and go to right */
+
+/* 5 Using Clip path to adding a clip using polygon on the header  */
+.header {
+    height: 95vh;
+    // background-image: linear-gradient(
+    //     to right bottom,
+    //     rgba(126, 213, 111, 0.8),
+    //      rgba(40, 180, 133, 0.8)), 
+    //      url(../img/hero.jpg);
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+         rgba($color-primary-dark, 0.8)), 
+         url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+
+    /* 6 clip-path: polygon(x y, x y, x y); 
+    0 0 =  X and y in top left to be at starting point
+    100% 0 = X and Y in top right as only X of element is selected 100% 
+    100% 50% = X is same 100% and Y in Bottom Right is 50% or 200px selected as manipulating the polygon shape 
+    0 100% = Starting from starting point Top Right again,  As X Stays same and Y is 100% in Bottom Left*/
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    /* For Triangle: 
+    clip-path: polygon(50% 0, 100% 100%,0 100%); */
+
+    /* USEFUL TOOL: https://bennettfeely.com/clippy/ */
+
+
+    /* 8. Position of parent element which is header should be relative so the child logo-box can be absolute */
+    position: relative;
+
+
+    &__logo-box{
+            // 58 SASS Code nesting, using & operator(header in this case) , and copy and paste from the code below the properties
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+
+
+    /* 9 Specify the height of image / Width will be automatically figured out by the browser */
+    &__logo{
+            // 59 Do the rest of the Header elements 
+        height: 3.5rem;
+    }
+
+    /* 24 logo animation to occur on hover  */
+    &__logo:hover{
+            // 59 Do the rest of the Header elements 
+        animation: moveInRight 1s ease-in-out;
+    }
+
+    /* 12 Following the natural order of html style the main text box  */
+    &__main-tex-box{
+            // 59 Do the rest of the Header elements 
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* background-color: red; */
+
+
+        /* 13  To Align the box in center we use transform property to translate / -50% is translate in X and Y .no longer in relation to the parent element
+        but the element itself */
+        transform: translate(-50%, -50%);
+
+        /* 28 For centering the elements of the box, we could set it to center by text align since button is text instead of using positon absolute or transform 
+        since it would be an overkill */
+        text-align: center;
+
+    }
+
+}
+
+
+
+/* 2 Building Header Part 2  */
+
+/* 7 Absolute position Intro / Top and Left */
+// 58 deleted(below)
+// .header__logo-box{
+//     position: absolute;
+//     top: 4rem;
+//     left: 4rem;
+
+// }
+
+
+// 59 Deleted(below)
+
+/* 9 Specify the height of image / Width will be automatically figured out by the browser */
+// .header__logo{
+//     height: 3.5rem;
+// }
+
+// /* 24 logo animation to occur on hover  */
+// .header__logo:hover{
+//     animation: moveInRight 1s ease-in-out;
+// }
+
+// /* 12 Following the natural order of html style the main text box  */
+// .header__main-tex-box{
+//     position: absolute;
+//     top: 40%;
+//     left: 50%;
+//     /* background-color: red; */
+
+
+//     /* 13  To Align the box in center we use transform property to translate / -50% is translate in X and Y .no longer in relation to the parent element
+//     but the element itself */
+//     transform: translate(-50%, -50%);
+
+//     /* 28 For centering the elements of the box, we could set it to center by text align since button is text instead of using positon absolute or transform 
+//     since it would be an overkill */
+//     text-align: center;
+
+// }

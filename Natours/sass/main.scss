@@ -1,0 +1,137 @@
+// 64 Importing _base.scss (Partial Sass) file. (NOTE: THIS ARCHITECTURE IS FOR LARGE SCALE WEBSITES AND LANDING PAGES)
+
+// 67 Import in ascending order so that it may be read, example variables(color variables) must be read first for it to apply in base files
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/header";
+
+
+@import "components/buttons";
+
+@import "pages/home";
+
+
+// 65 Create Abstract folder(with files) [variables, mixins and functions] and Components folder(with files for each components) [resuable building
+// blocks that make up our apps or websites]
+
+// 65 mkdir for Folder and type nul > _functions.scss for files
+// 65 Create layout folder(with files) [] and pages folder(with files for each components) [_home.scss]
+
+
+/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE Cmd+D to select at same time */
+/* IMPORTANT, IN VISUAL STUDIO CODE EDITOR, USE CMD+Cursor to place mutiple cursors */
+
+
+
+/*
+1 Building Header Part 1
+1 Normalize css */
+
+
+
+
+
+// /* 25 Styling our btn element / Psuedo class(Special states of selectors) Link, visisted(state in which user has already clicked on the link) */
+// .btn:link,
+// .btn:visited{
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     padding: 1.5rem 5rem;
+//     /* 27 btn is inline element and occupying text in the upper text line , we fix this by setting it to inline block */
+//     display:inline-block;
+//     /* 32 Setting the edges of button  */
+//     border-radius: 10rem;
+
+//     /* 33 Transition property instead of keyframes(which is the complex animation steps)  */
+//     transition: all .2s;
+//     /* 41 Set the postion property of the element to relative */
+//     position: relative;
+
+//     /* 51 Set font size in rem for button text  */
+//     font-size: 1.6rem;
+    
+// }
+
+// /* 30 select button hover "HOVER STATE" of the button /  Negative value in Y state from bottom to top and vice versa */
+// .btn:hover{
+//     transform: translateY(-.3px);
+
+//     /* 34 box shadow on  so we set to 0  10px(hover on y direction, not x direction) 20px(blur value so it looks like we are further away),
+//     rgba(0, 0, 0, 0.2)(rgba in black and transparency)*/
+//     // 57 change color to black and replace below
+//     box-shadow: 0 1rem 2rem rgba($color-black, .2);
+// }
+
+// /* 31 Click on active state  */
+// .btn:active{
+//     transform: translateY(-.1px);
+
+//     /* 35 Click on the button, shadow needs to looks smaller and less blur */
+//     // 57 change color to black and replace below
+//     box-shadow: 0 .5rem 1rem rgba($color-black, .2)
+// }
+
+
+// /* 26 Button is going to be white, */
+// .btn--white{
+//     background-color: $color-white;
+//     color: $color-grey-dark;
+// }
+
+// /* 36 Pseudo elements (after) allow us to style certain parts of elements  / Pseudo elements is basically
+//  treated like of the child of the element*/
+
+// .btn::after{
+//     /* 37 specify content propert, no matter if it is empty. Otherwise it wont appear / Samething with the display property  */
+//     content: "";
+//     display: inline-block;
+//     height: 100%;
+//     width: 100%;
+//     border-radius: 10rem;
+//     /* 40 It will still look like part of the parent btn, so we should put it behind our actual postion, use absolute postioning */
+//     position: absolute;
+//     top:0;
+//     left: 0;
+//     z-index: -1;
+//     /* 44 Transition for the button scale  */
+//     transition: all .4s;
+
+// }
+// /* /38 Another pseudo element for the button white  */
+// .btn--white::after{
+//     background-color: $color-white;
+// }
+
+// /* 42 When we hover over the button, then we want certain styles after using pseudo element  */
+// .btn:hover::after{
+//     /* 43  We want the elements to be bigger to grow and to fade out animtaion effect / Scale property is used to scale elements bigger, e.g.
+//     scale(2) will double the size. / Can scale in X and Y DIrection such as Translates , Rotates */
+//     transform: scaleX(1.4) scaleY(1.6);
+//     /* 45 opacity of the element goes back to zero /  Trick for fading something out  */
+//     opacity: 0;
+// }
+
+
+// /* 47 Button animated class created for animation  */
+// .btn--animated{
+//     animation: moveInBottom .5s ease-out .75s;
+
+//     /* 48 Animation fill-mode-set to backwards :  It will automatically apply the styles of zero percent before the animation starts
+    
+//     END OF SECTION 1*/
+//     animation-fill-mode: backwards;
+// }
+
+
+/* 52 Use media queries for setting font for each screen size  */
+
+/* ########################END OF SECTION 1 (2 - Natours Project Setup and First Steps Part 1) ########################################## */

@@ -1,0 +1,109 @@
+// 66 Placing header primary elements is -typography.scss in base section
+
+// 67 Place body element in typography as it is related to typography section.
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: $color-grey-dark;
+
+    /* 54  Box-sizing in the overall selector (*) will inherit from body  and it is set to inherit to force inheritance from body */
+    box-sizing: border-box;
+    
+
+    /* 4 Insert padding around the whole body */
+    /* 50 30px padding, divide it by rem and we end up with 3  and just like this divide each px value by 10 set in html css decleration block above */
+    padding: 3rem;
+}
+
+
+/* 10 Heading primary css /heading-primary-main css / heading primary sub css */
+.heading-primary{
+    color: $color-white;
+    text-transform: uppercase;
+
+    /* 22 Incase of shaking in animaiton, use backface-visibility property to fix it, set if to hidden */
+    backface-visibility: hidden;
+
+
+    /* 29 For adding white space by margin setting it to margin bottom  */
+    margin-bottom: 6rem;
+
+
+
+
+     /* 11 If we want elements on different lines, use display block / Font Weight / Letter Spacing  */
+    &--main{
+        // 60 Converting to sass code using operator &  for heading primary elements 
+        display: block;
+        font-size: 6rem; 
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+
+        /* 17 For the animation to work, we have to specify two properties, "animation name" and "animation-duration" / 
+        19 Other properties that we can specify such as animation delay / Animation iteration count property */
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        /* animation-delay: 3s; */
+
+        /* 20 Animation-timing function, How slow or fast will the animation proceed
+        Example ease in will start fast and become slower at time
+        east out, the animation will start slow and become fast over time */
+        animation-timing-function: ease-out;
+
+    }
+
+    &--sub{
+        // 60 Converting to sass code using operator &  for heading primary elements 
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+        
+
+        /* 21 Shorthand Animation property, Instead of specifying each property, just use shorthand animation
+        animation: name duration timing-function delay iteration-count direction fill-mode;*/
+        animation: moveInRight 1s ease-out;
+
+    }
+
+
+
+}
+
+//  /* 11 If we want elements on different lines, use display block / Font Weight / Letter Spacing  */
+// .heading-primary--main{
+    // 60 DELETED(Below)
+//     display: block;
+//     font-size: 6rem; 
+//     font-weight: 400;
+//     letter-spacing: 3.5rem;
+
+
+//      /* 17 For the animation to work, we have to specify two properties, "animation name" and "animation-duration" / 
+//       19 Other properties that we can specify such as animation delay / Animation iteration count property */
+//     animation-name: moveInLeft;
+//     animation-duration: 1s;
+//     /* animation-delay: 3s; */
+
+//     /* 20 Animation-timing function, How slow or fast will the animation proceed
+//     Example ease in will start fast and become slower at time
+//     east out, the animation will start slow and become fast over time */
+//     animation-timing-function: ease-out;
+
+// }
+
+// .heading-primary--sub{
+//     display: block;
+//     font-size: 2rem;
+//     font-weight: 700;
+//     letter-spacing: 1.74rem;
+    
+
+//     /* 21 Shorthand Animation property, Instead of specifying each property, just use shorthand animation
+//     animation: name duration timing-function delay iteration-count direction fill-mode;*/
+//     animation: moveInRight 1s ease-out;
+
+// }
